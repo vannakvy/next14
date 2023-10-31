@@ -1,6 +1,6 @@
 'use client'
 
-import { useFormStatus,useFormState } from 'react-dom'
+import { useFormStatus, useFormState } from 'react-dom'
 import { createTodo } from '@/app/actions'
 
 const initialState = {
@@ -11,7 +11,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button type="submit" aria-disabled={pending}>
+    <button className="bg-blue-600 my-2" type="submit" aria-disabled={pending}>
       Add
     </button>
   )
