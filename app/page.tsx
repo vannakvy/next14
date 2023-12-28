@@ -1,26 +1,44 @@
-import { sql } from '@vercel/postgres'
-import { AddForm } from '@/app/add-form'
-import { DeleteForm } from '@/app/delete-form'
+// import { sql } from '@vercel/postgres'
+// import { AddForm } from '@/app/add-form'
+// import { DeleteForm } from '@/app/delete-form'
 
-export const runtime = 'edge'
-export const preferredRegion = 'home'
+import { BannerCarousel } from "@/components/banner-carousel";
+import TypingAnimation from "@/components/typing-animation";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+
+
+// export const runtime = 'edge'
+// export const preferredRegion = 'home'
+
+
+
 
 export default async function Home() {
-  let data = await sql`SELECT * FROM todos`
-  const { rows: todos } = data
+
 
   return (
-    <main>
-      <h1 className="sr-only">Todos</h1>
-      <AddForm />
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.text}
-            <DeleteForm id={todo.id} todo={todo.text} />
-          </li>
-        ))}
-      </ul>
+    <main className="pt-6">
+      <div className="grid grid-cols-3 items-end max-w-[1300px] mx-auto mb-10">
+        <div className={cn("col-span-1 pr-6")}>
+          <TypingAnimation data=" fullstack developer and coding teaher" />
+
+          <h2 className="text-7xl font-bold py-6 font-secondary">Vy Vannak</h2>
+          <div className="flex items-center gap-x-4 py-6">
+            <Button size="lg">BLOG</Button>
+            <Button variant="outline" size="lg">ABOUT</Button>
+          </div>
+        </div>
+        <BannerCarousel />
+
+
+      </div>
+
+
+
+
+
     </main>
   )
 }
