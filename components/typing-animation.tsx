@@ -35,7 +35,7 @@ const TypingAnimation: FC<TypingAnimationProps> = ({ data }) => {
     };
   }, [data]);
 
-  return <span className={cn(" text-md typingAnimation font-secondary")} />;
+  return <span className={cn("tracking-wider text-md typingAnimation font-secondary")} />;
 };
 
 export default React.memo(TypingAnimation);
