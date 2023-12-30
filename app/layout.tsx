@@ -1,18 +1,12 @@
 import type { Metadata } from 'next'
-
-import './globals.css'
-
-import { cn } from '@/lib/utils'
 import { ThemeProvider } from "@/components/providers/theme-provider"
+import { ClerkProvider } from '@clerk/nextjs'
 
-
-
-// const inter = Inter({ subsets: ['latin'] })
 
 import { Titillium_Web, JetBrains_Mono, PT_Serif } from 'next/font/google';
 import BlogHeader from '@/components/blog-header'
 import BlogFooter from '@/components/blog-footer'
-
+import './globals.css'
 
 const fontTertiary = PT_Serif({
   subsets: ['latin'],
@@ -22,15 +16,15 @@ const fontTertiary = PT_Serif({
 });
 
 const fontPrimary = JetBrains_Mono({
-   subsets: ['latin'],
-    weight: ['400'],
-    variable:"--font-primary",
-   });
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: "--font-primary",
+});
 
 const fontSecondary = Titillium_Web({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable:"--font-secondary",
+  variable: "--font-secondary",
 });
 
 
@@ -45,19 +39,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${fontTertiary.variable}`}>
-      <body className={`${fontTertiary.variable} ${fontPrimary.variable} ${fontSecondary.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <BlogHeader />
-          {children}
-          <BlogFooter />
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning className={`${fontTertiary.variable}`}>
+        <body className={`${fontTertiary.variable} ${fontPrimary.variable} ${fontSecondary.variable}`}>
+
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <BlogHeader />
+            {children}
+            <BlogFooter />
+          </ThemeProvider>
+
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

@@ -5,6 +5,7 @@
 import { BannerCarousel } from "@/components/banner-carousel";
 import TypingAnimation from "@/components/typing-animation";
 import { Button } from "@/components/ui/button";
+import { getBlogEntries } from "@/lib/contentful/blogs";
 import { cn } from "@/lib/utils";
 
 
@@ -17,6 +18,7 @@ import { cn } from "@/lib/utils";
 
 export default async function Home() {
 
+ 
 
   return (
     <main className="pt-6">
