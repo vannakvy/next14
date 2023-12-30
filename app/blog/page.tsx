@@ -35,8 +35,8 @@ const BlogPage = async () => {
         <Search className="-ml-8" />
       </div>
     </div>
-    {blogEntries.items.map((blog) => <div key={blog.sys.id} className="flex items-center justify-between py-6">
-      <div className="py-3">
+    {blogEntries.items.map((blog) => <div key={blog.sys.id} className="flex items-center justify-between py-4">
+      <div className="">
         <p className="text-sm font-secondary text-gray-500">#CODE</p>
         <Link href={`/blog/${blog?.fields?.slug}`} className="text-3xl font-bold font-secondary hover:italic transition-all duration-400 block pb-2">{blog?.fields?.title as String}</Link>
         <div className="flex text-gray-400 font-primary text-xs gap-x-10">
@@ -44,7 +44,7 @@ const BlogPage = async () => {
           <p>. 2 Likes</p>
           <p>~ 4mn Read</p>
         </div>
-        <p className="text-xl font-secondary">{blog?.fields?.title as String}</p>
+        <p className="text-md font-secondary">{blog?.fields?.title as String}</p>
         {/* <Separator className="mt-2"/> */}
       </div>
 
