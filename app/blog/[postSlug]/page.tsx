@@ -25,8 +25,8 @@ const PostDetailPage = async ({ params }: { params: { postSlug: string } }) => {
 
     <div className="">
       <article className="post postFull">
-        <TableOfContents markdown={post.items[0].fields.extradata as String} />
-        <BlogMarkdown markdown={post.items[0].fields.extradata} />
+        <TableOfContents markdown={post.items[0].fields.extradata as string} />
+        <BlogMarkdown markdown={post.items[0].fields.extradata as string} />
 
       </article>
     </div>
